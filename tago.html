@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+
+        <h1>単語意味登録</h1>
+        <h2>what does this content mean?</h2>
+        <input type="text" id="en" placeholder="単語">
+        <input type="text" id="ja" placeholder="意味">
+      <button id="btn">登録</button>
+      <p id="total">total 0</p>
+      <table id="table"></table>
+    </div>
+<script>
+const en = document.querySelector('#en');
+const ja = document.querySelector('#ja');
+const button = document.querySelector('#btn');
+const table = document.querySelector('#table');
+const p = document.querySelector('p');
+class Color{
+    constructor(en,ja){
+        this.en=en;
+        this.ja=ja;
+    }
+  show() {
+
+    return `${this.en}の意味は${this.ja}`; 
+  }
+    
+}
+let colors=[];
+let i=0;
+button.addEventListener('click',function(){
+  colors.push(new Color(en.value,ja.value));
+  en.value='';
+  ja.value='';
+  const tr = document.createElement('tr');
+  const td = document.createElement('td');
+  
+  td.textContent = colors[i].show();
+  table.appendChild(tr);
+  tr.appendChild(td);
+  i++;
+  p.textContent=`total${i}`;
+})
+</script>
+
+
+</body>
+<style>
+    .wrapper{
+    text-align: center;
+    }
+
+</style>
+</html>
