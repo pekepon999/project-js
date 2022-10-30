@@ -4,59 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
-<body>
-    <div class="wrapper">
-
-        <h1>単語意味登録</h1>
-        <h2>what does this content mean?</h2>
-        <input type="text" id="en" placeholder="単語">
-        <input type="text" id="ja" placeholder="意味">
-      <button id="btn">登録</button>
-      <p id="total">total 0</p>
-      <table id="table"></table>
-    </div>
-<script>
-const en = document.querySelector('#en');
-const ja = document.querySelector('#ja');
-const button = document.querySelector('#btn');
-const table = document.querySelector('#table');
-const p = document.querySelector('p');
-class Color{
-    constructor(en,ja){
-        this.en=en;
-        this.ja=ja;
-    }
-  show() {
-
-    return `${this.en}の意味は${this.ja}`; 
-  }
     
-}
-let colors=[];
-let i=0;
-button.addEventListener('click',function(){
-  colors.push(new Color(en.value,ja.value));
-  en.value='';
-  ja.value='';
-  const tr = document.createElement('tr');
-  const td = document.createElement('td');
+<body>
+    <h1>入力された文字の中から母音の数をカウントします</h1>
+    <div class="first-content">
+        <h1>Vowels Counter</h1>
+    
+        
+        <div class="input-menu">
   
-  td.textContent = colors[i].show();
-  table.appendChild(tr);
-  tr.appendChild(td);
-  i++;
-  p.textContent=`total${i}`;
-})
+            <input type="text" placeholder="Enter words"/>
+        </div>
+        <button class="checkbtn">Check</button>
+        
+    </div>
+    
+</body>
+<script>
+const input= document.querySelector('input');
+const checkbtn =document.querySelector('.checkbtn');
+let cnt=0;
+
+let Vowels=['a','i','u','e','o'];
+checkbtn.addEventListener('click',function(){
+ let str = input.value;
+
+ str = str.split('');
+  str.forEach((item)=>{
+    
+     item=item.toLowerCase();
+     if(item =='a'||item=='i'||item=='u'||item=='e'||item=='o'){
+        cnt++;
+        
+
+     }
+  
+  })
+  alert(`vowels are${cnt}`)
+  cnt=0;
+  input.value='';
+});
+
+
+
 </script>
 
-
-</body>
-<style>
-    .wrapper{
-    text-align: center;
-    }
-
-</style>
 </html>
