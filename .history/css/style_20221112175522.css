@@ -1,0 +1,26 @@
+
+    body{
+        margin: 0;
+
+    }
+    h1
+    .input-menu input[type="text"]{
+     width: 70%;
+    }
+    .first-content{
+     text-align: center;
+     
+    }
+    .first-content > h1 {
+        font-weight: lighter;
+    }
+.checkbtn{
+    display: inline-block;
+    color:white;
+    background-color: green;
+    width: 80px;
+    height: 30px;
+    margin-top: 12px;
+    border-radius: .2rem;
+    cursor: pointer;
+}
